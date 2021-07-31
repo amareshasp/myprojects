@@ -1,31 +1,91 @@
 package com.amareshasp.model;
 
+
+
+
+
+
+
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
+class Subscription{
+    private String agency;
+    private List<String> topics;
+
+    public Subscription() {
+    }
+
+    public Subscription(String agency, List<String> topics) {
+        this.agency = agency;
+        this.topics = topics;
+    }
+
+    public String getAgency() {
+        return agency;
+    }
+
+    public void setAgency(String agency) {
+        this.agency = agency;
+    }
+
+    public List<String> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<String> topics) {
+        this.topics = topics;
+    }
+}
+
+@Document
 public class User {
-    String name;
-    int age;
-    String email;
+    @Id
+    private int userId;
+    private String userName;
+    private String userMail;
+    private int age;
+    private List<Subscription> subscriptions;
+    private Map<String,String> userSetting = new HashMap<>();
 
-    public User(String name, int age, String email) {
-        this.name = name;
+    public User() {
+    }
+
+    public User(int userId, String userName, String userMail, int age) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userMail = userMail;
         this.age = age;
-        this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", email='" + email + '\'' +
-                '}';
+    public int getUserId() {
+        return userId;
     }
 
-    public String getName() {
-        return name;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserMail() {
+        return userMail;
+    }
+
+    public void setUserMail(String userMail) {
+        this.userMail = userMail;
     }
 
     public int getAge() {
@@ -36,11 +96,19 @@ public class User {
         this.age = age;
     }
 
-    public String getEmail() {
-        return email;
+    public List<Subscription> getSubscriptions() {
+        return subscriptions;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSubscriptions(List<Subscription> subscriptions) {
+        this.subscriptions = subscriptions;
+    }
+
+    public Map<String, String> getUserSetting() {
+        return userSetting;
+    }
+
+    public void setUserSetting(Map<String, String> userSetting) {
+        this.userSetting = userSetting;
     }
 }
