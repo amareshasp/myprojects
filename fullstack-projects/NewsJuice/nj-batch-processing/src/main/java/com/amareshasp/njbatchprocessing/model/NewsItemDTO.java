@@ -1,14 +1,18 @@
-package rss;
+package com.amareshasp.njbatchprocessing.model;
 
-public class FeedMessage {
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="item")
+public class NewsItemDTO {
 
     String title;
     String description;
     String link;
-    String author;
     String guid;
     String pubDate;
 
+    @XmlElement(name="title")
     public String getTitle() {
         return title;
     }
@@ -16,7 +20,7 @@ public class FeedMessage {
     public void setTitle(String title) {
         this.title = title;
     }
-
+    @XmlElement(name="description")
     public String getDescription() {
         return description;
     }
@@ -24,7 +28,7 @@ public class FeedMessage {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    @XmlElement(name="link")
     public String getLink() {
         return link;
     }
@@ -32,15 +36,7 @@ public class FeedMessage {
     public void setLink(String link) {
         this.link = link;
     }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
+    @XmlElement(name="guid")
     public String getGuid() {
         return guid;
     }
@@ -48,7 +44,7 @@ public class FeedMessage {
     public void setGuid(String guid) {
         this.guid = guid;
     }
-
+    @XmlElement(name="pubDate")
     public String getPubDate() {
         return pubDate;
     }
@@ -59,11 +55,10 @@ public class FeedMessage {
 
     @Override
     public String toString() {
-        return "FeedMessage{" +
+        return "NewsItemDTO{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", link='" + link + '\'' +
-                ", author='" + author + '\'' +
                 ", guid='" + guid + '\'' +
                 ", pubDate='" + pubDate + '\'' +
                 '}';

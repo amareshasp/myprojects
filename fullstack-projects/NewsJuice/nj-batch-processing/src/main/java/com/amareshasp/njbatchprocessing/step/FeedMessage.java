@@ -1,4 +1,4 @@
-package rss;
+package com.amareshasp.njbatchprocessing.step;
 
 public class FeedMessage {
 
