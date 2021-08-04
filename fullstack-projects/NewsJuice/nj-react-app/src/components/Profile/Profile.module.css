@@ -1,1 +1,12 @@
-.Profile {}
+.Profile {
+}
+.button {
+  margin: 5px;
+}
+.formfield {
+  margin: 5px;
+  padding: 5px;
+}
+.accord {
+  width: 100%;
+}
