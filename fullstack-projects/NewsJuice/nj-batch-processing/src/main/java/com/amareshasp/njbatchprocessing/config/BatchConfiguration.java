@@ -41,23 +41,6 @@ public class BatchConfiguration {
 
     @Bean
     public ItemReader<FeedMessage> reader() {
-//        StaxEventItemReader<NewsItemDTO> reader = new StaxEventItemReader<>();
-//        reader.setResource(new ClassPathResource("sample_feed.xml"));
-//        reader.setFragmentRootElementName("item");
-//        Map<String, String> aliases = new HashMap<String, String>();
-//        aliases.put("item", "com.amareshasp.njbatchprocessing.model.NewsItemDTO");
-//
-//        XStreamMarshaller xStreamMarshaller = new XStreamMarshaller();
-//        try {
-//            xStreamMarshaller.setAliases(aliases);
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
-//        reader.setUnmarshaller(xStreamMarshaller);
-//
-//        return reader;
-
         return new RssReader();
 
     }
