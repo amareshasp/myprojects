@@ -74,20 +74,7 @@ function Profile(props) {
             <Typography>
               <SubView />
             </Typography>
-            <IconButton aria-label="delete" className={styles.button}>
-              <DeleteIcon fontSize="small" />
-            </IconButton>
           </AccordionDetails>
-          <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            className={styles.button}
-            startIcon={<Add />}
-            onClick={handleAdd}
-          >
-            ADD
-          </Button>
         </Accordion>
 
         <Box display="flex" flexDirection="row-reverse">

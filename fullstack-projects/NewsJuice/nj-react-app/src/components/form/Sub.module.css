@@ -1,10 +1,12 @@
-.Profile {
-}
 .button {
   margin: 5px;
 }
-.formfield {
+.ffield {
   margin: 5px;
+  padding: 5px;
+}
+.sfield {
+  margin: 15px;
   padding: 5px;
 }
 .accord {
