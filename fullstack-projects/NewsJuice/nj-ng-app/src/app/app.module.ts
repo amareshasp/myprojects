@@ -16,7 +16,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { MatRadioModule } from '@angular/material/radio';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,8 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatChipsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

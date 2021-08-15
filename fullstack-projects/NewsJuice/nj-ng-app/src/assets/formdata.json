@@ -1,0 +1,31 @@
+{
+"name":"Amaresh",
+"age":"37",
+"email":"amar@gmail.com",
+"subs":[ { 
+    "agency":"TOI",
+    "sport":true,
+    "event": true,
+    "entertainment":false,
+    "politics":false,
+    "tech":true
+},
+{ 
+    "agency":"The Hindu",
+    "sport":true,
+    "event": false,
+    "entertainment":true,
+    "politics":true,
+    "tech":false
+},
+{ 
+    "agency":"Decan Herald",
+    "sport":true,
+    "event": true,
+    "entertainment":true,
+    "politics":true,
+    "tech":false
+}
+]
+
+}

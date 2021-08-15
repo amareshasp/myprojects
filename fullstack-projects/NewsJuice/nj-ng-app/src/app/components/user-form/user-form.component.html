@@ -11,23 +11,22 @@
 </mat-form-field>
 
 <div formArrayName="subs">
-<div *ngFor="let sub of newSubs.controls; let i=index" [formGroupName]="i">
+<div *ngFor="let sub of newSubs.controls; let i=index">
+<div [formGroupName]="i">
     <mat-form-field>
 <input matInput placeholder="Agency" formControlName="agency">
     </mat-form-field>
    
     <mat-checkbox formControlName="sport" >Sports</mat-checkbox>
-
-<mat-checkbox formControlName="event">Events</mat-checkbox>
-
-<mat-checkbox formControlName="entertainment">Entertainments</mat-checkbox>
-<mat-checkbox formControlName="politics">Politics</mat-checkbox>
-<mat-checkbox formControlName="tech">Tech</mat-checkbox>
+        <mat-checkbox formControlName="event">Events</mat-checkbox>
+            <mat-checkbox formControlName="entertainment">Entertainment</mat-checkbox>
+                <mat-checkbox formControlName="politics">Politics</mat-checkbox>
+                <mat-checkbox formControlName="tech">Technology</mat-checkbox>
 
     <button mat-raised-button color="warn" (click)="deletePhone(i)"> Delete</button>
 </div>
 
-
+</div>
 </div>
 <button mat-raised-button color="primary" (click)="addPhone()"> Add</button>
 

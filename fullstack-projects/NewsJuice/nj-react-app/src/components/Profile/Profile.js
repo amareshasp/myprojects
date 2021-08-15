@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import styles from "./Profile.module.css";
 import TextField from "@material-ui/core/TextField";
-import Icon from "@material-ui/core/Icon";
 import SaveIcon from "@material-ui/icons/Save";
-import Add from "@material-ui/icons/Add";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Accordion from "@material-ui/core/Accordion";
@@ -12,9 +9,8 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import IconButton from "@material-ui/core/IconButton";
-import DeleteIcon from "@material-ui/icons/Delete";
-import SubView from "../form/SubView";
+
+import SubForm from "../Form/SubForm";
 
 function Profile(props) {
   const [name, setName] = useState("");
@@ -48,11 +44,13 @@ function Profile(props) {
                 className={styles.formfield}
                 onChange={(e) => setName(e.target.value)}
               />
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
               <TextField
                 id="standard-basic"
                 label="Surname"
                 className={styles.formfield}
               />
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
               <TextField
                 id="standard-basic"
                 label="Age"
@@ -72,7 +70,7 @@ function Profile(props) {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              <SubView />
+              <SubForm />
             </Typography>
           </AccordionDetails>
         </Accordion>
