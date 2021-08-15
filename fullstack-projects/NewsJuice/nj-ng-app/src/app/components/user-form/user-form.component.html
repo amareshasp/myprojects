@@ -1,5 +1,6 @@
 
 <form [formGroup]="myForm" >
+    {{myForm.value | json}}
 <mat-form-field>
     <input matInput placeholder="Name" formControlName="name">
 </mat-form-field>
@@ -13,9 +14,19 @@
 <div formArrayName="subs">
 <div *ngFor="let sub of newSubs.controls; let i=index">
 <div [formGroupName]="i">
+
     <mat-form-field>
-<input matInput placeholder="Agency" formControlName="agency">
+        <mat-label>Your Team</mat-label>
+        <mat-select formControlName="agency">
+            <mat-option *ngFor="let agency of newsAgency" [value]="agency.name" [disabled]="isDisabled(agency.name)">
+                {{agency.name}}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
+
+  <!--  <mat-form-field>
+<input matInput placeholder="Agency" formControlName="agency">
+    </mat-form-field>-->
    
     <mat-checkbox formControlName="sport" >Sports</mat-checkbox>
         <mat-checkbox formControlName="event">Events</mat-checkbox>

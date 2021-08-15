@@ -3,7 +3,7 @@
 "age":"37",
 "email":"amar@gmail.com",
 "subs":[ { 
-    "agency":"TOI",
+    "agency":"The Times of India",
     "sport":true,
     "event": true,
     "entertainment":false,
@@ -19,7 +19,7 @@
     "tech":false
 },
 { 
-    "agency":"Decan Herald",
+    "agency":"Deccan Herald",
     "sport":true,
     "event": true,
     "entertainment":true,
