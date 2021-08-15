@@ -6,11 +6,8 @@ class SubView extends React.Component {
     bookDetails: [
       {
         index: Math.random(),
-        name: "",
-        author: "",
-        type: "",
-        dateOfPublish: "",
-        price: "",
+        agency: "",
+        channel: "",
       },
     ],
   };

@@ -6,8 +6,18 @@ import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import Button from "@material-ui/core/Button";
 import Add from "@material-ui/icons/Add";
-
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 const SubList = (props) => {
+  const [isEvent, setEvent] = React.useState(false);
+  const [isSport, setSport] = React.useState(false);
+
+  const handleEventChange = (event) => {
+    setEvent(event.target.checked);
+  };
+  const handleSportChange = (event) => {
+    setSport(event.target.checked);
+  };
   const [state, setState] = React.useState({
     age: "",
     name: "hai",
@@ -21,27 +31,6 @@ const SubList = (props) => {
       price = `price-${idx}`;
     return (
       <div key={val.index}>
-        <TextField
-          id="standard-basic"
-          label="Name"
-          id={name}
-          className={styles.ffield}
-        />
-
-        <TextField
-          id="standard-basic"
-          label="Price"
-          id={price}
-          className={styles.ffield}
-        />
-
-        <TextField
-          id="standard-basic"
-          label="price"
-          id={price}
-          className={styles.ffield}
-        />
-
         <Select
           native
           value={state.age}
@@ -60,6 +49,32 @@ const SubList = (props) => {
           <option value="The Hindu">The Hindu</option>
           <option value="Hindustan">Hindustan</option>
         </Select>
+
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={state.checkedB}
+              onChange={(e) => handleEventChange(e.target.checked)}
+              name="checkedB"
+              color="primary"
+            />
+          }
+          label="Events"
+        />
+
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={state.checkedB}
+              onChange={handleSportChange}
+              name="checkedB"
+              color="primary"
+            />
+          }
+          label="Sports"
+        />
+
+        <span className={styles.ffield}>&nbsp;</span>
         {idx === 0 ? (
           <Button
             variant="contained"
