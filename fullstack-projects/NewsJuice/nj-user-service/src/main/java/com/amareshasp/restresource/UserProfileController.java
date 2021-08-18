@@ -28,7 +28,7 @@ public class UserProfileController {
         return "Saved";
 
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/get")
     @ResponseBody
     public ResponseEntity<User> getUser() {

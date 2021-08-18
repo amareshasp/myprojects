@@ -1,0 +1,29 @@
+/*************** MongoDB *******************/
+
+Local host connection string : mongodb://localhost:27017
+
+Database:  nj_userbase
+
+Collections:
+user :
+{
+    "_id": 1,
+    "userName": "Prateek",
+    "userMail": "yahoo.com",
+    "age": 29,
+    "subscriptions": [{
+            "agency": "TOI",
+            "topics": ["Sports", "Events"]
+        }
+    ],
+    "userSetting": {
+        "refresh": "daily",
+        "mail": "yes",
+        "theme": "tweeter"
+    },
+    "_class": "com.amareshasp.model.User"
+}
+
+subscription_master
+
+

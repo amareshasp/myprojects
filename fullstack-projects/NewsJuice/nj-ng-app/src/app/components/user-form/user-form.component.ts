@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { UserDataService } from '../../service/user-data.service';
 
 @Component({
   selector: 'app-user-form',
@@ -19,7 +19,7 @@ export class UserFormComponent implements OnInit {
     { name: 'The Indian Express' },
     { name: 'The Telegraph' },
   ];
-  constructor(private fb: FormBuilder, private http: HttpClient) {}
+  constructor(private fb: FormBuilder, private userService : UserDataService) {}
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -38,13 +38,14 @@ export class UserFormComponent implements OnInit {
       ]),
     });
 
-    this.http.get('/assets/formdata.json').subscribe((data: any) => {
+    this.userService.sendGetRequest().subscribe((data: any) => {
+      console.log(data);
       this.myForm = this.fb.group({
-        name: new FormControl(data.name),
+        name: new FormControl(data.userName),
         age: data.age,
-        email: data.email,
+        email: data.userMail,
         subs: this.fb.array(
-          data.subs.map((datum: any) => this.generateDatumFormGroup(datum))
+          data.subscriptions.map((datum: any) => this.generateDatumFormGroup(datum))
         ),
       });
     });
@@ -57,29 +58,28 @@ export class UserFormComponent implements OnInit {
     console.log(datum);
       //this.newsAgency = this.newsAgency.filter(item => item === datum.agency);  
     this.newsAgencyList.push(datum.agency);
+    console.log(this.isExists(datum.topics, 'Sports'));
     const obj = this.fb.group({
       agency: new FormControl(datum.agency),
-      sport: new FormControl(datum.sport),
-      event: new FormControl(datum.event),
-      entertainment: new FormControl(datum.entertainment),
-      politics: new FormControl(datum.politics),
-      tech: new FormControl(datum.tech),
+      sport: new FormControl(this.isExists(datum.topics, 'Sports')),
+      event: new FormControl(this.isExists(datum.topics, 'Events')),
+      entertainment: new FormControl(this.isExists(datum.topics, 'Entertainment')),
+      politics: new FormControl(this.isExists(datum.topics, 'Politics')),
+      tech: new FormControl(this.isExists(datum.topics, 'Technology')),
     });
 
 return obj;
+  }
+
+  isExists(arr: string[], val:string){
+return arr.some(function(e){return e===val});
   }
 
   get newSubs() {
     return this.myForm.get('subs') as FormArray;
   }
 
-  addPhoneTOISports() {
-    const subs = this.fb.group({
-      agency: 'TOI',
-      sport: true,
-    });
-    this.newSubs.push(subs);
-  }
+ 
   addPhone() {
     const subs = this.fb.group({
       agency: [''],
