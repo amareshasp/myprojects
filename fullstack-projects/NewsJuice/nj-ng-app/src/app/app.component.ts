@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { UserDataService } from './service/user-data.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +14,13 @@ export class AppComponent {
   navLinks : any[];
   activeLinkIndex = -1;
 
-  constructor(private router: Router){
+
+    email: string ="";
+  password: string ="";
+
+
+
+  constructor(private router: Router,public dialog: MatDialog, private userService : UserDataService){
 this.navLinks =[
  {
             label: 'News',
@@ -32,7 +42,22 @@ this.navLinks =[
  this.router.events.subscribe((res) => {
       this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
   });
+ this.openDialog();
+  }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(UserLoginComponent, {
+      disableClose: true,
+      width: '250px',
+      data: { email: this.email, password: this.password }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+      this.email = result.email;
+      this.password = result.password;
+      this.userService._userEmail =  this.email ;
+    });
   }
 
 }

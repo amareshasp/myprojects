@@ -7,3 +7,12 @@ nav a.active {
   font-size: 30px;
   font-family: cursive;
 }
+
+.username {
+  padding: 0px 5px;
+  font-size: 10px;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}

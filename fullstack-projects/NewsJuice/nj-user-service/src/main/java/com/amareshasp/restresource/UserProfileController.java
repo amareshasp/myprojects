@@ -4,6 +4,9 @@ import com.amareshasp.dao.UserRepository;
 import com.amareshasp.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +20,11 @@ public class UserProfileController {
 
     private final UserRepository userRepository;
 
-    public UserProfileController(UserRepository userRepository) {
+    private final MongoTemplate mongoTemplate ;
+
+    public UserProfileController(UserRepository userRepository,MongoTemplate mongoTemplate) {
         this.userRepository = userRepository;
+        this.mongoTemplate = mongoTemplate;
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -33,11 +39,23 @@ public class UserProfileController {
     @ResponseBody
     public ResponseEntity<User> getUser() {
         logger.info("Fetching user data");
-       // User user = new User(1,"Amaresh", "gmail",37 );
         List<User> users = userRepository.findAll();
         return ResponseEntity.ok(users.get(0));
 
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/get-by-mail")
+    @ResponseBody
+    public ResponseEntity<User> getUserbyEmail(@RequestParam String userEmail) {
+        logger.info("Fetching user data by email");
+
+       User user = mongoTemplate.findOne(
+                Query.query(Criteria.where("userMail").is(userEmail)), User.class);
+        return ResponseEntity.ok(user);
+
+    }
+
 
 
 }

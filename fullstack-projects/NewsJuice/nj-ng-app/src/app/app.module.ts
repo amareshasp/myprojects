@@ -18,11 +18,15 @@ import { MatRadioModule } from '@angular/material/radio';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    UserFormComponent
+    UserFormComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import {MatIconModule} from '@angular/material/icon';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
