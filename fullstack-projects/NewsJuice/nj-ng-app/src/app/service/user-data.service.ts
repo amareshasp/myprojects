@@ -10,6 +10,7 @@ export class UserDataService {
   constructor(private httpClient: HttpClient) { }
 
   public sendGetRequest(){
+   // httpClient.se
     return this.httpClient.get(this.USER_MICRO_SERVICE);
   }
 }

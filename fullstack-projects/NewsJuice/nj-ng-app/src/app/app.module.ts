@@ -17,7 +17,7 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { MatRadioModule } from '@angular/material/radio';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatChipsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

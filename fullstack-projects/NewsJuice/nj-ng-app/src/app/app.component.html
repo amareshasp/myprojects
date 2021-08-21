@@ -1,13 +1,23 @@
-<nav mat-tab-nav-bar>
-    <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive #rla="routerLinkActive"
-        [active]="rla.isActive" class="">
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="appname">News Juice</span>
+    <button
+      mat-button
+      *ngFor="let link of navLinks"
+      [routerLink]="link.link"
+      routerLinkActive
+      #rla="routerLinkActive"
+    >
+      {{ link.label }}
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-        {{link.label}}
-
-    </a>
-</nav>
-
-
-<router-outlet>
-
-</router-outlet>
+<router-outlet> </router-outlet>
