@@ -10,14 +10,14 @@ import java.util.Map;
 
 class Subscription{
     private String agency;
-    private List<String> topics;
+    private List<String> channel;
 
     public Subscription() {
     }
 
-    public Subscription(String agency, List<String> topics) {
+    public Subscription(String agency, List<String> channel) {
         this.agency = agency;
-        this.topics = topics;
+        this.channel = channel;
     }
 
     public String getAgency() {
@@ -28,12 +28,12 @@ class Subscription{
         this.agency = agency;
     }
 
-    public List<String> getTopics() {
-        return topics;
+    public List<String> getChannel() {
+        return channel;
     }
 
-    public void setTopics(List<String> topics) {
-        this.topics = topics;
+    public void setChannel(List<String> channel) {
+        this.channel = channel;
     }
 }
 
@@ -103,5 +103,17 @@ public class User {
 
     public void setUserSetting(Map<String, String> userSetting) {
         this.userSetting = userSetting;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userMail='" + userMail + '\'' +
+                ", age=" + age +
+                ", subscriptions=" + subscriptions +
+                ", userSetting=" + userSetting +
+                '}';
     }
 }

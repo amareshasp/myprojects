@@ -27,6 +27,7 @@ public class UserProfileController {
         this.mongoTemplate = mongoTemplate;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public String saveUser(@RequestBody User user) {
         logger.info("Saving user data " + user);

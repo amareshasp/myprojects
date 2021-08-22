@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+import { UserDataService } from '../../service/user-data.service';
 
 @Component({
   selector: 'app-user-login',
@@ -9,23 +9,38 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class UserLoginComponent implements OnInit {
 
+  loginMessage: string = "";
 
-  email: string ="";
-  password: string ="";
+  email: string = "";
+  password: string = "";
 
   constructor(
     public dialogRef: MatDialogRef<UserLoginComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private userService: UserDataService) { }
 
   ngOnInit(): void {
-  //  throw new Error('Method not implemented.');
+    //  throw new Error('Method not implemented.');
   }
 
   onNoClick(): void {
-    this.dialogRef.close({
-      email: this.email,
-      password :this.password
+    this.userService.sendGetRequestByEmail(this.email).subscribe((data: any) => {
+      console.log(data);
+      if (data) {
+
+        this.dialogRef.close({
+          userName: data.userName,
+          email: data.userMail,
+          password: this.password
+        });
+
+
+      } else {
+        this.loginMessage = "User not found!"
+      }
+
     });
+
+
   }
 
 
