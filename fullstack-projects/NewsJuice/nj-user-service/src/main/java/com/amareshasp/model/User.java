@@ -40,7 +40,7 @@ class Subscription{
 @Document
 public class User {
     @Id
-    private int userId;
+    private String userId;
     private String userName;
     private String userMail;
     private int age;
@@ -50,18 +50,18 @@ public class User {
     public User() {
     }
 
-    public User(int userId, String userName, String userMail, int age) {
+    public User(String userId, String userName, String userMail, int age) {
         this.userId = userId;
         this.userName = userName;
         this.userMail = userMail;
         this.age = age;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
