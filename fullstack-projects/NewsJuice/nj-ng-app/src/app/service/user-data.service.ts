@@ -9,8 +9,8 @@ export class UserDataService {
   _userEmail: string = "";
 
 
-  private USER_MICRO_SERVICE_GET_BY_MAIL = "http://localhost:9000/user/get-by-mail";
-  private USER_MICRO_SERVICE_SAVE_USER = "http://localhost:9000/user/save";
+  private USER_MICRO_SERVICE_GET_BY_MAIL = "https://nj-user-service.azurewebsites.net/user/get-by-mail";
+  private USER_MICRO_SERVICE_SAVE_USER = "https://nj-user-service.azurewebsites.net/user/save";
 
   constructor(private httpClient: HttpClient) { }
 
