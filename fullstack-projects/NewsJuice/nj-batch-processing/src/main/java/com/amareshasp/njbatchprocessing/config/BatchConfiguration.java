@@ -27,8 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Configuration
-@EnableBatchProcessing
+
 public class BatchConfiguration {
 
     @Autowired
