@@ -1,12 +1,5 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row fxLayoutAlign="space-between center">
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
     <span class="appname">News Juice</span>
     <button
       mat-button
@@ -18,7 +11,14 @@
       {{ link.label }}
     </button>
     <span class="header-spacer"></span>
-    <span class="username">Welcome {{ userName | titlecase }}</span>
+    <span class="username">
+      <button mat-button [matMenuTriggerFor]="menu">
+        Welcome {{ userService.userName | titlecase }} !
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+    </span>
   </mat-toolbar-row>
 </mat-toolbar>
 

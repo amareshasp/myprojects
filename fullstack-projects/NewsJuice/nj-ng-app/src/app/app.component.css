@@ -5,7 +5,9 @@ nav a.active {
 .appname {
   padding: 0px 5px;
   font-size: 30px;
-  font-family: cursive;
+  color: yellow;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
 }
 
 .username {

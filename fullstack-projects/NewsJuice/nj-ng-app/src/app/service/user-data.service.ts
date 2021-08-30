@@ -1,16 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { UserModel } from '../model/user.model';
+import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserDataService {
 
   _userEmail: string = "";
+  _userName: string = "";
 
+  _isLoginSuccess = false;
 
-  private USER_MICRO_SERVICE_GET_BY_MAIL = "https://nj-user-service.azurewebsites.net/user/get-by-mail";
-  private USER_MICRO_SERVICE_SAVE_USER = "https://nj-user-service.azurewebsites.net/user/save";
+  public isLogin = new BehaviorSubject<boolean>(false);
+  cast = this.isLogin.asObservable();
+
+  private baseUrl = environment.baseUrl;
+  private USER_MICRO_SERVICE_GET_BY_MAIL = this.baseUrl + '/get-by-mail';
+  private USER_MICRO_SERVICE_SAVE_USER = this.baseUrl + '/save';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -36,10 +45,30 @@ export class UserDataService {
   }
 
 
+  public set isLoginSuccess(success: boolean) {
+    this._isLoginSuccess = success;
+  }
+  public get isLoginSuccess() {
+    return this._isLoginSuccess;
+  }
+
+
   public set userEmail(email: string) {
     this._userEmail = email;
   }
   public get userEmail() {
     return this._userEmail;
   }
+
+  public set userName(name: string) {
+    this._userName = name;
+  }
+  public get userName() {
+    return this._userName;
+  }
+
+  changeLogin(value: boolean) {
+    this.isLogin.next(value);
+  }
+
 }

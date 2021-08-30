@@ -1,0 +1,77 @@
+{
+"loadDate" :"29-Aug-2021",
+"data" : [ 
+{
+"channel" : "Sports",
+"news" : [
+	{ 
+	"agency" : "Times of India",
+	"headline" :  [ "Paralympics: Sumit wins gold, creates world record in javelin throw F64 event", 
+		"Javelin thrower Sumit clinches India's second gold in Paralympics",
+		 "Ronaldo completes medical ahead of United move: Report" ]
+	},
+	{ 
+	"agency" : "The Hindu",
+	"headline" :  [ "President, PM lead nation in congratulating Indian Paralympic stars for their stellar show in Tokyo", 
+		"Sumit Antil clinches India's second gold in Paralympics",
+		 "Rajasthan govt announces cash rewards for Paralympic medal winners; shooter Avani Lekhara to get ₹3 cr" ]
+	},
+	{ 
+	"agency" : "India Today",
+	"headline" :  [ "Neeraj Chopra proud of Sumit Antil's Tokyo Paralympics javelin gold: Khatarnaak performance bhai", 
+		"Manchester United winger Amad Diallo out for six weeks, loan move on hold", 
+		"PM Narendra Modi hails Sumit Antil's javelin gold in Tokyo: Our athletes continue to shine at the Paralympics" ]
+	}	
+	]
+},
+{
+"channel" : "Politics",
+"news" : [
+	{ 
+	"agency" : "Times of India",
+	"headline" :  [ "Wrong choice of words but strictness needed: Haryana CM on IAS officer's 'crack their heads' remark", 
+		"Over 4.87 crore Covid vaccines still available to be administered with states/UTs"]
+	},
+	{ 
+	"agency" : "The Hindu",
+	"headline" :  [ "Guj: Elected representatives to ensure no eligible person is left out from welfare schemes, says Shah",
+		 "The Rane-Uddhav spat | Talking Politics with Nistula Hebbar", 
+		 "Union Education Minister seeks Odisha CM Naveen Patnaik’s intervention for issuing marksheets to UG students" ]
+	},
+	{ 
+	"agency" : "India Today",
+	"headline" :  [ "Karnataka: A Yedi-made formula"]
+	}
+	]
+},
+{
+"channel" : "Entertainment",
+"news" : [
+	{ 
+	"agency" : "Times of India",
+	"headline" :  [ "Sonam Kapoor misses husband Anand", 
+		"Arjun Rampal enjoys with family", 
+		"Remakes of International films in Bollywood" ]
+	},
+	{ 
+	"agency" : "The Hindu",
+	"headline" :  [ "'Shang-Chi and the Legend of the Ten Rings' movie review: Marvel’s most enjoyable comfort watch yet",
+		 "India’s experimental indie music, now shaped by the pandemic",
+		  "Masterclass with award-winning British film editor Andrew Bird" ]
+	},
+	{ 
+	"agency" : "Zeenews",
+	"headline" :  [ "Alia Bhatt channels the girl-next-door charm in latest pictures ", 
+		"Shakti Kapoor breaks silence on daughter Shraddha Kapoor's marriage rumours with beau Rohan Shrestha", 
+		"Bollywood actor Sonam Kapoor on Monday shared a 'miss you' post on social media for her husband Anand Ahuja saying she 'can't wait' to see him again." ]
+	},
+	{ 
+	"agency" : "India Today",
+	"headline" :  [ "Kareena Kapoor Khan: Managing motherhood",
+		 "Comedy Premium League: A new variety show sees the world of Indian comedy trying to laugh away the blues",
+		  "Javed Akhtar’s new show, 'India Shayari Project,' celebrates freedom through poetry" ]
+	}
+	]
+}
+]
+}

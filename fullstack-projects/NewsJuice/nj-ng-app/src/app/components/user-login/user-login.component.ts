@@ -26,7 +26,8 @@ export class UserLoginComponent implements OnInit {
     this.userService.sendGetRequestByEmail(this.email).subscribe((data: any) => {
       console.log(data);
       if (data) {
-
+        this.userService.isLoginSuccess = true;
+        this.userService.changeLogin(true);
         this.dialogRef.close({
           userName: data.userName,
           email: data.userMail,
@@ -35,7 +36,9 @@ export class UserLoginComponent implements OnInit {
 
 
       } else {
-        this.loginMessage = "User not found!"
+        this.userService.isLoginSuccess = false;
+        this.loginMessage = "User not found!";
+        this.userService.changeLogin(false);
       }
 
     });

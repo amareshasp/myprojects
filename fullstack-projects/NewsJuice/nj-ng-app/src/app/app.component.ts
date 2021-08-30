@@ -15,13 +15,14 @@ export class AppComponent {
   activeLinkIndex = -1;
 
 
+  loginDialog = false;
   userName: string = "";
   email: string = "";
   password: string = "";
 
 
 
-  constructor(private router: Router, public dialog: MatDialog, private userService: UserDataService) {
+  constructor(private router: Router, public dialog: MatDialog, public userService: UserDataService) {
     this.navLinks = [
       {
         label: 'News',
@@ -43,23 +44,41 @@ export class AppComponent {
     this.router.events.subscribe((res) => {
       this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
     });
-    this.openDialog();
+    this.userService.cast.subscribe(data => {
+      console.log(data);
+      if (!data && !this.loginDialog) {
+        this.openDialog();
+      }
+    });
+
   }
 
   openDialog(): void {
+    this.loginDialog = true;
     const dialogRef = this.dialog.open(UserLoginComponent, {
       disableClose: true,
       width: '250px',
       data: { userName: this.userName, email: this.email, password: this.password }
     });
 
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
       this.userName = result.userName;
       this.email = result.email;
       this.password = result.password;
-      this.userService._userEmail = this.email;
+      this.userService.userEmail = this.email;
+      this.userService.userName = this.userName;
+      this.loginDialog = false;
+      this.userService.changeLogin(true);
+      this.router.navigate(['/', 'newshome']);
     });
+  }
+  logout(): void {
+    this.userService.isLoginSuccess = false;
+    this.userService.userEmail = "xxx@yy.com";
+    this.userService.userName = "";
+    this.userService.changeLogin(false);
   }
 
 }
