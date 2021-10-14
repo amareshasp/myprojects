@@ -12,8 +12,15 @@
     </button>
     <span class="header-spacer"></span>
     <span class="username">
-      <button mat-button [matMenuTriggerFor]="menu">
-        Welcome {{ userService.userName | titlecase }} !
+      Welcome {{ userService.userName | titlecase }} !
+    </span>
+    <span>
+      <button
+        mat-icon-button
+        aria-label="Example icon button with a vertical three dot icon"
+        [matMenuTriggerFor]="menu"
+      >
+        <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="logout()">Logout</button>

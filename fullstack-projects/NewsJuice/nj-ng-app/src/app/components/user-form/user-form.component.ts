@@ -11,6 +11,7 @@ export class UserFormComponent implements OnInit {
   myForm: FormGroup = new FormGroup({});
   newsAgencyList: string[] = [];
   usermodel!: UserModel;
+  showSpinner: boolean = false;
 
   newsAgency: any[] = [
     { name: 'The Times of India' },
@@ -41,8 +42,10 @@ export class UserFormComponent implements OnInit {
       ]),
     });
 
+    this.showSpinner = true;
     this.userService.sendGetRequest().subscribe((data: any) => {
       console.log(data);
+      this.showSpinner = false;
       if (data) {
         this.myForm = this.fb.group({
           uid: data.userId,

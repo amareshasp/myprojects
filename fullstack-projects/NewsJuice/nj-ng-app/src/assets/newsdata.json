@@ -72,6 +72,35 @@
 		  "Javed Akhtar’s new show, 'India Shayari Project,' celebrates freedom through poetry" ]
 	}
 	]
+},
+{
+"channel" : "Top Stories",
+"news" : [
+	{ 
+	"agency" : "Times of India",
+	"headline" :  [ "Live: Mullah Baradar to lead new Afghanistan government, say Taliban sources", 
+		"Covid live: India reports 45,352 new cases, 366 deaths", 
+		"Post-Covid recovery & heart attacks: Is there a link?" ]
+	},
+	{ 
+	"agency" : "The Hindu",
+	"headline" :  [ "Modi government harmful for employment: Rahul Gandhi",
+		 "Polling under way for civic elections in Belagavi, Hubballi-Dharwad",
+		  "Governor Biswa Bhusan Harichandan paid tributes to the former Chief Minister Y.S. Rajasekhar Reddy (YSR) on his death anniversary. Speaking on the occ" ]
+	},
+	{ 
+	"agency" : "Zeenews",
+	"headline" :  [ "JEE Main 2021: Answer keys to be released soon, check details at jeemaint.nta.nic.in ", 
+		"Doctors suspended as 6 more die of suspected dengue in Uttar Pradesh`s Firozabad, toll rises to 47", 
+		"Bengal post-poll violence: Retired Calcutta HC chief Justice Manjula Chellur to head SIT probe" ]
+	},
+	{ 
+	"agency" : "India Today",
+	"headline" :  [ "US Open 2021: Karolina Pliskova saves match point to beat Amanda Anisimova, enters third round",
+		 "Cryptocurrency prices today: Bitcoin retreats after crossing $50,000, retains strong momentum",
+		  "Third wave will also be over: SC raps Centre over delay in Covid relief norms" ]
+	}
+	]
 }
 ]
 }

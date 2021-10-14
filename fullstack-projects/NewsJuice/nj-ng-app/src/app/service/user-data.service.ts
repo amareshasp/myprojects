@@ -3,7 +3,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { UserModel } from '../model/user.model';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { Observable, throwError } from 'rxjs';
 
+import { retry, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +19,7 @@ export class UserDataService {
 
   public isLogin = new BehaviorSubject<boolean>(false);
   cast = this.isLogin.asObservable();
+  errorMsg: string = "";
 
   private baseUrl = environment.baseUrl;
   private USER_MICRO_SERVICE_GET_BY_MAIL = this.baseUrl + '/get-by-mail';
@@ -36,7 +40,18 @@ export class UserDataService {
     let params = new HttpParams();
     params = params.append('userEmail', email);
 
-    return this.httpClient.get(this.USER_MICRO_SERVICE_GET_BY_MAIL, { params: params });
+    return this.httpClient.get(this.USER_MICRO_SERVICE_GET_BY_MAIL, { params: params }).pipe(
+      catchError(error => {
+        if (error.error instanceof ErrorEvent) {
+          this.errorMsg = `Error: ${error.error.message}`;
+        } else {
+          this.errorMsg = `Error: ${error.message}`;
+        }
+        return of({ error: 1 })
+      })
+    );
+
+
   }
 
 
@@ -69,6 +84,30 @@ export class UserDataService {
 
   changeLogin(value: boolean) {
     this.isLogin.next(value);
+  }
+
+  handleError(error: any) {
+
+    let errorMessage: string = " ";
+
+    if (error.error instanceof ErrorEvent) {
+
+      // client-side error
+
+      errorMessage = 'Error: ${error.error.message }';
+
+    } else {
+
+      // server-side error
+
+      errorMessage = 'Error Code: ${ error.status } \nMessage: ${ error.message }';
+
+    }
+
+    window.alert(errorMessage);
+
+    return errorMessage;
+
   }
 
 }

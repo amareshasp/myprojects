@@ -1,5 +1,9 @@
 <h1 mat-dialog-title>User Login</h1>
-
+<mat-spinner
+  style="margin: 0 auto"
+  [diameter]="50"
+  *ngIf="showSpinner"
+></mat-spinner>
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Registered E-Mail</mat-label>

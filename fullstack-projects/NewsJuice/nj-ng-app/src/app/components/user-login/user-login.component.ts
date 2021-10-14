@@ -13,6 +13,7 @@ export class UserLoginComponent implements OnInit {
 
   email: string = "";
   password: string = "";
+  showSpinner: boolean = false;
 
   constructor(
     public dialogRef: MatDialogRef<UserLoginComponent>,
@@ -23,26 +24,42 @@ export class UserLoginComponent implements OnInit {
   }
 
   onNoClick(): void {
+    this.reset();
+    this.showSpinner = true;
     this.userService.sendGetRequestByEmail(this.email).subscribe((data: any) => {
       console.log(data);
-      if (data) {
-        this.userService.isLoginSuccess = true;
-        this.userService.changeLogin(true);
-        this.dialogRef.close({
-          userName: data.userName,
-          email: data.userMail,
-          password: this.password
-        });
-
-
-      } else {
+      this.showSpinner = false;
+      if (!data) {
         this.userService.isLoginSuccess = false;
         this.loginMessage = "User not found!";
         this.userService.changeLogin(false);
+      } else {
+
+        if (data.error) {
+          this.userService.isLoginSuccess = false;
+          this.loginMessage = "Error occured!";
+          this.userService.changeLogin(false);
+        } else {
+          this.userService.isLoginSuccess = true;
+          this.userService.changeLogin(true);
+          this.dialogRef.close({
+            userName: data.userName,
+            email: data.userMail,
+            password: this.password
+          });
+        }
+
       }
+
 
     });
 
+
+  }
+
+  reset() {
+
+    this.loginMessage = "";
 
   }
 

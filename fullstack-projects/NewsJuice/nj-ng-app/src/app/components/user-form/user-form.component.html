@@ -1,4 +1,9 @@
-<mat-card>
+<mat-spinner
+  style="margin: 0 auto"
+  [diameter]="70"
+  *ngIf="showSpinner"
+></mat-spinner>
+<mat-card *ngIf="!showSpinner">
   <mat-card-title> User Subscription Information </mat-card-title>
   <br />
   <form fxLayout="column" [formGroup]="myForm">
