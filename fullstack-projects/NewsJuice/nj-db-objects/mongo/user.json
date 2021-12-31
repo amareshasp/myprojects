@@ -1,0 +1,58 @@
+[{
+  "_id": "user124242",
+  "userName": "Abhishek",
+  "userMail": "abhishek@yahoo.com",
+  "age": 36,
+  "subscriptions": [
+    {
+      "agency": "The Hindu",
+      "channel": [
+        "Sports",
+        "Politics"
+      ]
+    }
+  ],
+  "userSetting": {
+    "mail": "yes",
+    "refresh": "weekly"
+  },
+  "_class": "com.amareshasp.model.User"
+},{
+  "_id": "user2",
+  "userName": "Amaresh",
+  "userMail": "amaresh@gmail.com",
+  "age": 37,
+  "subscriptions": [
+    {
+      "agency": "The Hindu",
+      "channel": [
+        "Events",
+        "Technology"
+      ]
+    },
+    {
+      "agency": "The Times of India",
+      "channel": [
+        "Entertainment",
+        "Politics"
+      ]
+    },
+    {
+      "agency": "Hindustan Times ",
+      "channel": [
+        "Sports",
+        "Events"
+      ]
+    },
+    {
+      "agency": "The Indian Express",
+      "channel": [
+        "Politics"
+      ]
+    }
+  ],
+  "userSetting": {
+    "mail": "yes"
+  },
+  "_class": "com.amareshasp.model.User"
+}]
