@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/7f325985-2865-4570-b75d-e613509e7b1a/resourceGroups/newsjuice/providers/Microsoft.Web/sites/newsjuice",
+    "appService.deploySubpath": "dist\\nj-ng-app"
+}
